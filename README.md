@@ -17,10 +17,10 @@ Please find more information on the [wiki pages](https://github.com/ethz-asl/kal
 For questions or comments, please open an issue on Github.
 
 ## Building with Bazel
-This repository now provides initial support for building with
+This repository provides support for building with
 [Bazel](https://bazel.build/).  A minimal `WORKSPACE` and root `BUILD`
-file have been added as a starting point.  The conversion is not
-complete, but simple targets can be built with:
+file are included along with BUILD files for several core packages.
+The conversion is not yet complete, but simple targets can be built with:
 
 ```bash
 bazel build //...
