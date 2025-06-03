@@ -16,6 +16,18 @@ To install follow the [install wiki page](https://github.com/ethz-asl/kalibr/wik
 Please find more information on the [wiki pages](https://github.com/ethz-asl/kalibr/wiki) of this repository.
 For questions or comments, please open an issue on Github.
 
+## Building with Bazel
+This repository provides support for building with
+[Bazel](https://bazel.build/).  A minimal `WORKSPACE` and root `BUILD`
+file are included along with BUILD files for several core packages.
+The conversion is not yet complete, but simple targets can be built with:
+
+```bash
+bazel build //...
+```
+
+Further refinements to the build files are welcome.
+
 
 ## News / Events
 
