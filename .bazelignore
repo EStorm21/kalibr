@@ -1,0 +1,28 @@
+# Ignore build directories from other build systems
+build
+devel
+install
+.catkin_workspace
+
+# Ignore problematic directories with symlinks
+catkin_simple/test
+
+# Ignore IDE and editor files
+.vscode
+.idea
+*.swp
+*.swo
+
+# Ignore Python cache
+__pycache__
+*.pyc
+*.pyo
+
+# Ignore documentation build
+docs/_build
+doxygen
+
+# Ignore temporary files
+*.tmp
+*.bak
+*~
