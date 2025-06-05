@@ -1,0 +1,40 @@
+# Git
+.git
+.gitignore
+
+# Build outputs
+bazel-*
+build/
+devel/
+install/
+.catkin_workspace
+
+# IDE
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Documentation
+docs/
+doxygen/
+
+# Temporary files
+*.swp
+*.swo
+*~
+*.bak
+*.tmp
+
+# Test data (if large)
+*.bag
+test_data/
+
+# Docker
+Dockerfile*
+docker-compose.yml
+.dockerignore

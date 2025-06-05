@@ -53,3 +53,22 @@ Build
 
 # vs-code
 .vscode
+
+# Bazel
+bazel-bin
+bazel-kalibr
+bazel-out
+bazel-testlogs
+
+# Test scripts (local development)
+test_*.sh
+check_*.sh
+find_*.sh
+build_*.sh
+debug_*.sh
+simple_test.sh
+test_*.py
+
+# Temporary directories
+cd/
+sh/

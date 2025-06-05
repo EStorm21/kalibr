@@ -14,11 +14,12 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#include "linear_solver_dense.h"
+#include <sparse_block_matrix/linear_solver_dense.h>
 
-#include "g2o/core/block_solver.h"
-#include "g2o/core/solver.h"
-#include "g2o/core/solver_factory.h"
+// g2o headers not available - this file provides g2o integration
+// #include "g2o/core/block_solver.h"
+// #include "g2o/core/solver.h"
+// #include "g2o/core/solver_factory.h"
 
 #define DIM_TO_SOLVER(p, l) BlockSolver< BlockSolverTraits<p, l> >
 

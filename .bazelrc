@@ -1,0 +1,29 @@
+# C++ standard
+build --cxxopt='-std=c++14'
+build --host_cxxopt='-std=c++14'
+
+# Compiler flags
+build --copt=-Wall
+build --copt=-Wextra
+build --copt=-Wno-unused-parameter
+build --copt=-Wno-sign-compare
+
+# Python include paths are handled via external repositories
+
+# Optimization
+build --copt=-O2
+
+# Debug symbols
+build --copt=-g
+
+# Enable workspace status command
+# Uncomment if you have a workspace_status.sh script
+# build --workspace_status_command=./workspace_status.sh
+
+# Platform specific flags
+build:linux --copt=-fPIC
+build:macos --copt=-fPIC
+
+# Test settings
+test --test_output=errors
+test --test_summary=detailed

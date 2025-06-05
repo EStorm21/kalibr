@@ -1,0 +1,38 @@
+cc_library(
+    name = "suitesparse",
+    srcs = glob([
+        "lib/libcholmod*.dylib",
+        "lib/libcholmod*.so",
+        "lib/libcholmod*.a",
+        "lib/libspqr*.dylib",
+        "lib/libspqr*.so",
+        "lib/libspqr*.a",
+        "lib/libamd*.dylib",
+        "lib/libamd*.so",
+        "lib/libamd*.a",
+        "lib/libcolamd*.dylib",
+        "lib/libcolamd*.so",
+        "lib/libcolamd*.a",
+        "lib/libcamd*.dylib",
+        "lib/libcamd*.so",
+        "lib/libcamd*.a",
+        "lib/libccolamd*.dylib",
+        "lib/libccolamd*.so",
+        "lib/libccolamd*.a",
+        "lib/libsuitesparseconfig*.dylib",
+        "lib/libsuitesparseconfig*.so",
+        "lib/libsuitesparseconfig*.a",
+    ]),
+    hdrs = glob([
+        "include/suitesparse/*.h",
+        "include/*.h",
+    ]),
+    includes = [
+        "include",
+        "include/suitesparse",
+    ],
+    visibility = ["//visibility:public"],
+    deps = [
+        "@eigen//:eigen",
+    ],
+)

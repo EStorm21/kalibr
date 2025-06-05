@@ -1,6 +1,7 @@
 #include <aslam/backend/BlockCholeskyLinearSystemSolver.hpp>
 #include <sparse_block_matrix/linear_solver_cholmod.h>
-#include <sparse_block_matrix/linear_solver_spqr.h>
+// SPQR support disabled - missing SuiteSparseQR.hpp
+// #include <sparse_block_matrix/linear_solver_spqr.h>
 #include <aslam/backend/ErrorTerm.hpp>
 #include <sm/PropertyTree.hpp>
 
@@ -19,9 +20,11 @@ namespace aslam {
       if(_solverType == "cholesky") {
         _solver.reset(new sparse_block_matrix::LinearSolverCholmod<Eigen::MatrixXd>());
       } else if(_solverType == "spqr") {
-        _solver.reset(new sparse_block_matrix::LinearSolverQr<Eigen::MatrixXd>());
+        // SPQR solver not available - using cholesky instead
+        std::cout << "SPQR solver not available in this build. Using cholesky instead.\n";
+        _solver.reset(new sparse_block_matrix::LinearSolverCholmod<Eigen::MatrixXd>());
       } else {
-        std::cout << "Unknown block solver type " << _solverType << ". Try \"cholesky\" or \"spqr\"\nDefaulting to cholesky.\n";
+        std::cout << "Unknown block solver type " << _solverType << ". Try \"cholesky\"\nDefaulting to cholesky.\n";
         _solver.reset(new sparse_block_matrix::LinearSolverCholmod<Eigen::MatrixXd>());
       }
     }
@@ -36,9 +39,11 @@ namespace aslam {
       if(_solverType == "cholesky") {
         _solver.reset(new sparse_block_matrix::LinearSolverCholmod<Eigen::MatrixXd>());
       } else if(_solverType == "spqr") {
-        _solver.reset(new sparse_block_matrix::LinearSolverQr<Eigen::MatrixXd>());
+        // SPQR solver not available - using cholesky instead
+        std::cout << "SPQR solver not available in this build. Using cholesky instead.\n";
+        _solver.reset(new sparse_block_matrix::LinearSolverCholmod<Eigen::MatrixXd>());
       } else {
-        std::cout << "Unknown block solver type " << _solverType << ". Try \"cholesky\" or \"spqr\"\nDefaulting to cholesky.\n";
+        std::cout << "Unknown block solver type " << _solverType << ". Try \"cholesky\"\nDefaulting to cholesky.\n";
         _solver.reset(new sparse_block_matrix::LinearSolverCholmod<Eigen::MatrixXd>());
       }
       _solver->init();
@@ -110,9 +115,11 @@ namespace aslam {
       if(_solverType == "cholesky") {
         _solver.reset(new sparse_block_matrix::LinearSolverCholmod<Eigen::MatrixXd>());
       } else if(_solverType == "spqr") {
-        _solver.reset(new sparse_block_matrix::LinearSolverQr<Eigen::MatrixXd>());
+        // SPQR solver not available - using cholesky instead
+        std::cout << "SPQR solver not available in this build. Using cholesky instead.\n";
+        _solver.reset(new sparse_block_matrix::LinearSolverCholmod<Eigen::MatrixXd>());
       } else {
-        std::cout << "Unknown block solver type " << _solverType << ". Try \"cholesky\" or \"spqr\"\nDefaulting to cholesky.\n";
+        std::cout << "Unknown block solver type " << _solverType << ". Try \"cholesky\"\nDefaulting to cholesky.\n";
         _solver.reset(new sparse_block_matrix::LinearSolverCholmod<Eigen::MatrixXd>());
       }
 
