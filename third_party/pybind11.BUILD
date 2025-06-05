@@ -1,11 +1,10 @@
+package(default_visibility = ["//visibility:public"])
+
 cc_library(
     name = "pybind11",
     hdrs = glob([
         "include/pybind11/**/*.h",
     ]),
     includes = ["include"],
-    visibility = ["//visibility:public"],
-    deps = [
-        "@rules_python//python/cc:current_py_cc_headers",
-    ],
+    # Python headers are system-installed in Docker
 )

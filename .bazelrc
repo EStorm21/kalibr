@@ -1,37 +1,29 @@
-# Build options
-build --cxxopt=-std=c++14
-build --host_cxxopt=-std=c++14
-build --copt=-O2
-build --copt=-fPIC
+# C++ standard
+build --cxxopt='-std=c++14'
+build --host_cxxopt='-std=c++14'
 
-# Enable platform-specific config
-build:linux --copt=-fdiagnostics-color=always
-build:macos --copt=-fdiagnostics-color=always
-
-# Test options
-test --test_output=errors
-test --test_summary=detailed
-
-# Python options
-build --python_path=python3
-
-# Compiler warnings
+# Compiler flags
 build --copt=-Wall
 build --copt=-Wextra
 build --copt=-Wno-unused-parameter
-build --copt=-Wno-missing-field-initializers
+build --copt=-Wno-sign-compare
 
-# Address sanitizer config (optional)
-build:asan --strip=never
-build:asan --copt=-fsanitize=address
-build:asan --copt=-fno-omit-frame-pointer
-build:asan --linkopt=-fsanitize=address
+# Python include paths are handled via external repositories
 
-# Thread sanitizer config (optional)
-build:tsan --strip=never
-build:tsan --copt=-fsanitize=thread
-build:tsan --copt=-fno-omit-frame-pointer
-build:tsan --linkopt=-fsanitize=thread
+# Optimization
+build --copt=-O2
 
-# Set workspace status command (commented out since we don't have the script)
-# build --workspace_status_command=tools/get_workspace_status
+# Debug symbols
+build --copt=-g
+
+# Enable workspace status command
+# Uncomment if you have a workspace_status.sh script
+# build --workspace_status_command=./workspace_status.sh
+
+# Platform specific flags
+build:linux --copt=-fPIC
+build:macos --copt=-fPIC
+
+# Test settings
+test --test_output=errors
+test --test_summary=detailed

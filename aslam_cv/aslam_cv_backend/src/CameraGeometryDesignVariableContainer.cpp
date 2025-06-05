@@ -1,6 +1,6 @@
 #include <aslam/CameraGeometryDesignVariableContainer.hpp>
-#include <aslam/ReprojectionError.hpp>
-#include <aslam/ScalarExpressionNodeKeypointTime.hpp>
+#include <aslam/backend/ReprojectionError.hpp>
+#include <aslam/backend/ScalarExpressionNodeKeypointTime.hpp>
 #include <sm/logging.hpp>
 
 /// \remarks This file is neither in use nor compiled.
@@ -59,7 +59,7 @@ backend::ScalarExpression CameraGeometryDesignVariableContainer::keypointTime(
     const aslam::Time & imageStamp, const Eigen::VectorXd & y) {
   if (_estimateShutter) {
     boost::shared_ptr < backend::ScalarExpressionNode
-        > root(new ScalarExpressionNodeKeypointTime(imageStamp, y, _cameraDv));
+        > root(new backend::ScalarExpressionNodeKeypointTime(imageStamp, y, _cameraDv));
     return backend::ScalarExpression(root);
   } else {
     return backend::ScalarExpression(
@@ -82,9 +82,9 @@ boost::shared_ptr<ReprojectionError> CameraGeometryDesignVariableContainer::crea
   boost::shared_ptr<ReprojectionError> re;
   if (_camera->minimalDimensions(_estimateProjection, _estimateDistortion,
                                  _estimateShutter) == 0) {
-    re.reset(new ReprojectionError(y, invR, p_c, _camera.get()));
+    re.reset(new backend::ReprojectionError(y, invR, p_c, _camera.get()));
   } else {
-    re.reset(new ReprojectionError(y, invR, p_c, this));
+    re.reset(new backend::ReprojectionError(y, invR, p_c, this));
   }
   return re;
 }

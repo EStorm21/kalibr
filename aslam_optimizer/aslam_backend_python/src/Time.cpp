@@ -1,6 +1,7 @@
 #include <numpy_eigen/boost_python_headers.hpp>
 #include <boost/python/operators.hpp>
 #include <aslam/Time.hpp>
+#include <aslam/Duration.hpp>
 
 // static Time now();
 // double toSec()  const { return (double)sec + 1e-9*(double)nsec; };

@@ -3,7 +3,7 @@
 #include <aslam/backend/BSplineMotionError.hpp>
 #include <aslam/splines/BSplinePoseDesignVariable.hpp>
 #include <aslam/splines/EuclideanBSplineDesignVariable.hpp>
-#include <aslam/splines/BSplineRSPoseDesignVariable.hpp>
+// #include <aslam/splines/BSplineRSPoseDesignVariable.hpp>  // Header doesn't exist
 
 #include <boost/shared_ptr.hpp>
 
@@ -30,11 +30,12 @@ void exportBSplineMotionError()
          .def("rhs", &BSplineMotionError<aslam::splines::BSplinePoseDesignVariable>::rhs)
          ;
 
-    class_<BSplineMotionError<aslam::splines::BSplineRSPoseDesignVariable>, boost::shared_ptr<BSplineMotionError<aslam::splines::BSplineRSPoseDesignVariable> >, bases<ErrorTerm> >
-    ("BSplineRSMotionError", init<aslam::splines::BSplineRSPoseDesignVariable*, Eigen::MatrixXd >("BSplineRSMotionError(BSplinePoseDesignVariable, W)"))
-     .def(init<aslam::splines::BSplineRSPoseDesignVariable*, Eigen::MatrixXd, unsigned int >("BSplineRSMotionError(BSplinePoseDesignVariable, W, errorTermOrder)"))
-     .def("rhs", &BSplineMotionError<aslam::splines::BSplineRSPoseDesignVariable>::rhs)
-     ;
+    // Commented out because BSplineRSPoseDesignVariable doesn't exist
+    // class_<BSplineMotionError<aslam::splines::BSplineRSPoseDesignVariable>, boost::shared_ptr<BSplineMotionError<aslam::splines::BSplineRSPoseDesignVariable> >, bases<ErrorTerm> >
+    // ("BSplineRSMotionError", init<aslam::splines::BSplineRSPoseDesignVariable*, Eigen::MatrixXd >("BSplineRSMotionError(BSplinePoseDesignVariable, W)"))
+    //  .def(init<aslam::splines::BSplineRSPoseDesignVariable*, Eigen::MatrixXd, unsigned int >("BSplineRSMotionError(BSplinePoseDesignVariable, W, errorTermOrder)"))
+    //  .def("rhs", &BSplineMotionError<aslam::splines::BSplineRSPoseDesignVariable>::rhs)
+    //  ;
     
     
 }

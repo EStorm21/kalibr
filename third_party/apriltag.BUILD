@@ -1,3 +1,5 @@
+package(default_visibility = ["//visibility:public"])
+
 cc_library(
     name = "apriltag",
     srcs = glob([
@@ -12,17 +14,13 @@ cc_library(
         ".",
         "common",
     ],
-    visibility = ["//visibility:public"],
     copts = [
         "-std=c99",
         "-fPIC",
         "-Wall",
         "-Wno-unused-parameter",
         "-Wno-unused-function",
+        "-pthread",
     ],
-    linkopts = select({
-        "@platforms//os:linux": ["-lpthread", "-lm"],
-        "@platforms//os:macos": ["-lpthread"],
-        "//conditions:default": [],
-    }),
+    linkopts = ["-lm", "-pthread"],
 )

@@ -32,15 +32,15 @@ http_archive(
 # Eigen - Using system eigen instead of downloading
 new_local_repository(
     name = "eigen",
-    path = "/usr/include/eigen3",
+    path = "/usr/include",
     build_file_content = """
 cc_library(
     name = "eigen",
     hdrs = glob([
-        "Eigen/**",
-        "unsupported/Eigen/**",
+        "eigen3/Eigen/**",
+        "eigen3/unsupported/Eigen/**",
     ]),
-    includes = ["."],
+    includes = ["eigen3"],
     visibility = ["//visibility:public"],
     defines = ["EIGEN_MPL2_ONLY"],
 )
@@ -251,6 +251,34 @@ http_archive(
     strip_prefix = "pybind11-2.11.1",
     urls = ["https://github.com/pybind/pybind11/archive/v2.11.1.tar.gz"],
     sha256 = "d475978da0cdc2d43b73f30910786759d593a9d8ee05b1b6846d1eb16c6d2e0c",
+)
+
+# System Python headers
+new_local_repository(
+    name = "python_headers",
+    path = "/usr/include/python3.8",
+    build_file_content = """
+cc_library(
+    name = "python_headers",
+    hdrs = glob(["**/*.h"]),
+    includes = ["."],
+    visibility = ["//visibility:public"],
+)
+""",
+)
+
+# NumPy headers
+new_local_repository(
+    name = "numpy_headers", 
+    path = "/usr/lib/python3/dist-packages/numpy/core/include",
+    build_file_content = """
+cc_library(
+    name = "numpy_headers",
+    hdrs = glob(["**/*.h"]),
+    includes = ["."],
+    visibility = ["//visibility:public"],
+)
+""",
 )
 
 # AprilTag

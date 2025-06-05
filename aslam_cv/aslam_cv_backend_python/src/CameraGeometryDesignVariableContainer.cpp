@@ -3,7 +3,7 @@
 #include <numpy_eigen/boost_python_headers.hpp>
 #include <aslam/CameraGeometryDesignVariableContainer.hpp>
 #include <sm/python/stl_converters.hpp>
-#include <aslam/ReprojectionError.hpp>
+#include <aslam/backend/ReprojectionError.hpp>
 #include <aslam/backend/DesignVariable.hpp>
 #include "helpers.hpp"
 
